@@ -10,6 +10,7 @@
 
 [build.environment]
   NODE_VERSION = "18"
+  NPM_FLAGS = "--legacy-peer-deps"
 
 # API proxy - redirect API calls to backend
 # Configure VITE_API_URL environment variable in Netlify dashboard if needed

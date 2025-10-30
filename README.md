@@ -2,6 +2,12 @@
 
 A comprehensive expense management platform with OCR, digital approval workflows, and payroll integration.
 
+## 🚀 Quick Deploy to Netlify
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start)
+
+Proyek ini sudah siap untuk di-deploy ke Netlify! Lihat [NETLIFY_QUICK_START.md](./NETLIFY_QUICK_START.md) untuk panduan lengkap dalam Bahasa Indonesia.
+
 ## 🚀 Core Features
 
 ### 1. OCR & Auto Data Extraction
