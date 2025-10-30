@@ -74,12 +74,29 @@ expense-claims-system/
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### Demo Mode (No Backend Required) 🎭
+
+Want to try the application without setting up the backend? Use **Demo Mode**!
+
+```bash
+cd apps/web
+echo "VITE_DEMO_MODE=true" > .env
+npm install
+npm run dev
+```
+
+Visit http://localhost:3000 and click "Login as Admin" or "Login as Employee" to explore the app with 15 pre-loaded expense claims.
+
+📖 See [DEMO_MODE.md](./DEMO_MODE.md) for detailed demo mode documentation.
+
+### Full Setup (With Backend)
+
+#### Prerequisites
 - Node.js >= 18
 - PostgreSQL >= 14
 - Redis (for caching and queues)
 
-### Installation
+#### Installation
 
 ```bash
 npm install
