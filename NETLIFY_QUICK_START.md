@@ -30,11 +30,13 @@ Proyek ini sudah dikonfigurasi untuk deploy otomatis ke Netlify.
    - **Publish directory**: `apps/web/dist`
    - **Node version**: 18 (sudah di set di netlify.toml)
 
-4. **Environment Variables (Opsional)**
+4. **Environment Variables (WAJIB untuk production)**
    
-   Jika Anda memiliki backend API, tambahkan environment variable:
+   **Penting**: Aplikasi ini memerlukan backend API untuk berfungsi. Tambahkan environment variable:
    - Pergi ke "Site settings" → "Environment variables"
    - Tambahkan: `VITE_API_URL=https://your-backend-api.com/api/v1`
+   
+   Tanpa backend API, aplikasi akan menampilkan error 404 untuk semua API calls.
 
 5. **Deploy**
    - Klik "Deploy site"

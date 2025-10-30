@@ -119,7 +119,7 @@ npm run dev
 
 ## 🚢 Deployment
 
-### Netlify (Frontend)
+### Netlify (Frontend Only)
 
 The easiest way to deploy the frontend is using Netlify:
 
@@ -127,6 +127,13 @@ The easiest way to deploy the frontend is using Netlify:
 # The project includes netlify.toml configuration
 # Simply connect your repository to Netlify
 ```
+
+**Important**: When deploying only the frontend to Netlify, you must:
+1. Deploy the backend API separately (see [DEPLOYMENT.md](./DEPLOYMENT.md))
+2. Configure the `VITE_API_URL` environment variable in Netlify dashboard to point to your backend API
+3. Update the API proxy redirects in `netlify.toml` if needed
+
+Without a backend API, the frontend will show 404 errors for all API calls.
 
 See [NETLIFY_DEPLOYMENT.md](./NETLIFY_DEPLOYMENT.md) for detailed instructions.
 
