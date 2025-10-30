@@ -26,9 +26,11 @@ This guide will help you deploy the Expense Claims System frontend to Netlify.
    The `netlify.toml` file in the root directory contains all the necessary configuration. Netlify will automatically detect it. Verify these settings:
    
    - **Base directory**: (leave empty or use `.`)
-   - **Build command**: `npm install && npx turbo run build --filter=@expense-claims/web`
+   - **Build command**: `npx turbo run build --filter=@expense-claims/web`
    - **Publish directory**: `apps/web/dist`
    - **Node version**: 18
+   
+   Note: Netlify automatically installs dependencies, so we don't include `npm install` in the build command.
 
 4. **Deploy**
    - Click "Deploy site"
@@ -96,7 +98,7 @@ The project uses:
 
 Build command breakdown:
 ```bash
-npm install                                    # Install all dependencies
+# Netlify automatically runs: npm install (with dependencies from package-lock.json)
 npx turbo run build --filter=@expense-claims/web  # Build only the web app
 ```
 
@@ -108,8 +110,10 @@ npx turbo run build --filter=@expense-claims/web  # Build only the web app
 
 **Solution**: Make sure `netlify.toml` has the correct build command:
 ```toml
-command = "npm install && npx turbo run build --filter=@expense-claims/web"
+command = "npx turbo run build --filter=@expense-claims/web"
 ```
+
+Note: Netlify automatically installs dependencies before running this command.
 
 ### Page Refresh Returns 404
 

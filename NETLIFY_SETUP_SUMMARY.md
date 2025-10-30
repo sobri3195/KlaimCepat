@@ -59,8 +59,10 @@ This project has been configured for seamless deployment on Netlify. All necessa
 
 ### Build Command
 ```bash
-npm install && npx turbo run build --filter=@expense-claims/web
+npx turbo run build --filter=@expense-claims/web
 ```
+
+Note: Netlify automatically installs dependencies before running the build command.
 
 ### Publish Directory
 ```
