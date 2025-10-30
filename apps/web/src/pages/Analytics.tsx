@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { motion } from 'framer-motion';
+import { Download } from 'lucide-react';
 import api from '../services/api';
+import { exportAnalyticsToExcel } from '../utils/exportUtils';
 
 const COLORS = ['#4F46E5', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899'];
 
@@ -33,33 +36,64 @@ export default function Analytics() {
   };
 
   if (loading) {
-    return <div className="flex items-center justify-center h-64">Loading analytics...</div>;
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="animate-pulse-custom text-indigo-600 font-semibold">
+          Loading analytics...
+        </div>
+      </div>
+    );
   }
+
+  const handleExport = () => {
+    exportAnalyticsToExcel({
+      stats,
+      topSpenders,
+      categoryBreakdown
+    });
+  };
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-900">Analytics Dashboard</h1>
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+      >
+        <h1 className="text-3xl font-bold text-gray-900">Analytics Dashboard</h1>
+        <button
+          onClick={handleExport}
+          className="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl"
+        >
+          <Download size={20} className="mr-2" />
+          Export to Excel
+        </button>
+      </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         <StatCard
           title="Total Claims"
           value={stats?.totalClaims || 0}
           color="bg-blue-100 text-blue-600"
+          delay={0.1}
         />
         <StatCard
           title="Total Amount"
           value={`Rp ${(stats?.totalAmount || 0).toLocaleString('id-ID')}`}
           color="bg-green-100 text-green-600"
+          delay={0.2}
         />
         <StatCard
           title="Pending Approvals"
           value={stats?.pendingApprovals || 0}
           color="bg-yellow-100 text-yellow-600"
+          delay={0.3}
         />
         <StatCard
           title="Avg Approval Time"
           value={`${stats?.avgApprovalTime || 0}h`}
           color="bg-purple-100 text-purple-600"
+          delay={0.4}
         />
       </div>
 
@@ -180,12 +214,18 @@ export default function Analytics() {
   );
 }
 
-function StatCard({ title, value, color }: any) {
+function StatCard({ title, value, color, delay }: any) {
   return (
-    <div className="bg-white rounded-lg shadow p-6">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay }}
+      whileHover={{ y: -4, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)' }}
+      className="bg-white rounded-lg shadow-lg p-6 card-hover"
+    >
       <p className="text-gray-600 text-sm">{title}</p>
       <p className={`text-3xl font-bold mt-2 ${color}`}>{value}</p>
-    </div>
+    </motion.div>
   );
 }
 

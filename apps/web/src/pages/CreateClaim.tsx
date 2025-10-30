@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Plus, Trash2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import api from '../services/api';
 import toast from 'react-hot-toast';
 
@@ -66,10 +67,21 @@ export default function CreateClaim() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <h1 className="text-3xl font-bold text-gray-900">Create New Claim</h1>
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-3xl font-bold text-gray-900"
+      >
+        Create New Claim
+      </motion.h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="bg-white rounded-lg shadow p-6 space-y-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="bg-white rounded-lg shadow-lg p-6 space-y-4"
+        >
           <h2 className="text-xl font-semibold">Claim Details</h2>
 
           <div>
@@ -107,15 +119,20 @@ export default function CreateClaim() {
               ))}
             </select>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="bg-white rounded-lg shadow p-6 space-y-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="bg-white rounded-lg shadow-lg p-6 space-y-4"
+        >
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold">Claim Items</h2>
             <button
               type="button"
               onClick={addItem}
-              className="flex items-center px-3 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+              className="flex items-center px-3 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-lg hover:shadow-xl"
             >
               <Plus size={16} className="mr-2" />
               Add Item
@@ -124,7 +141,13 @@ export default function CreateClaim() {
 
           <div className="space-y-4">
             {items.map((item, index) => (
-              <div key={index} className="p-4 border border-gray-200 rounded-lg space-y-3">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 + index * 0.05 }}
+                className="p-4 border border-gray-200 rounded-lg space-y-3 hover:shadow-md transition-shadow"
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
@@ -197,13 +220,18 @@ export default function CreateClaim() {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="bg-white rounded-lg shadow p-6">
-          <div className="flex items-center justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="bg-white rounded-lg shadow-lg p-6"
+        >
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <p className="text-sm text-gray-600">Total Amount</p>
               <p className="text-3xl font-bold text-gray-900">
@@ -211,24 +239,24 @@ export default function CreateClaim() {
               </p>
             </div>
 
-            <div className="space-x-4">
+            <div className="flex flex-wrap gap-2">
               <button
                 type="button"
                 onClick={() => navigate('/claims')}
-                className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                className="px-6 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50"
+                className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50 transition-colors shadow-lg hover:shadow-xl"
               >
                 {loading ? 'Creating...' : 'Create Claim'}
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </form>
     </div>
   );
