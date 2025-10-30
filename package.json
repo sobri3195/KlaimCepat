@@ -1,0 +1,27 @@
+{
+  "name": "expense-claims-system",
+  "version": "1.0.0",
+  "description": "Enterprise Expense Claims System with OCR, Digital Approval, and Payroll Integration",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "clean": "turbo run clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "turbo": "^1.10.16",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
