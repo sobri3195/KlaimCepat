@@ -1,8 +1,8 @@
-# Sistem Expense Claims - Mode Demo
+# Sistem Expense Claims - Frontend Only
 
 ## 🎉 Sudah Siap Pakai!
 
-Aplikasi sudah dikonfigurasi dengan **Mode Demo** sehingga Anda bisa langsung login dan mencoba tanpa perlu setup backend atau database!
+Aplikasi sudah dikonfigurasi untuk berjalan 100% di browser tanpa perlu backend atau database!
 
 ## 🚀 Quick Start
 
@@ -11,15 +11,14 @@ Aplikasi sudah dikonfigurasi dengan **Mode Demo** sehingga Anda bisa langsung lo
 npm install
 
 # 2. Jalankan aplikasi
-cd apps/web
 npm run dev
 ```
 
-Buka browser di **http://localhost:3000**
+Buka browser di **http://localhost:3000** - Modal login akan muncul otomatis
 
-## 👥 Login Demo
+## 👥 Login dengan Modal
 
-Di halaman login, klik salah satu tombol:
+Modal login akan muncul otomatis. Klik salah satu tombol:
 
 | Role | Button | Akses |
 |------|--------|-------|
@@ -34,12 +33,10 @@ Di halaman login, klik salah satu tombol:
 ✅ **Dashboard analytics** dengan grafik dan statistik  
 ✅ **Workflow lengkap** untuk manage klaim expense
 ✅ **Mock API** yang simulate backend real
-✅ **Auto-login** untuk testing cepat
+✅ **Auto-login via modal** untuk testing cepat
 
 ## 📖 Dokumentasi Lengkap
 
-- 🇮🇩 [Cara Login Demo (Bahasa Indonesia)](./CARA_LOGIN_DEMO.md)
-- 🇬🇧 [Demo Mode Documentation (English)](./DEMO_MODE.md)
 - 📘 [Full README (English)](./README.md)
 
 ## 💡 Fitur Utama
@@ -55,18 +52,17 @@ Di halaman login, klik salah satu tombol:
 
 ### Netlify (Recommended)
 ```bash
-# Mode Demo sudah aktif, tinggal deploy!
-# Set env: VITE_DEMO_MODE=true
+# Tidak perlu environment variable, tinggal deploy!
+# Aplikasi berjalan 100% di browser
 ```
 
-### Dengan Backend Real
-Lihat [DEPLOYMENT.md](./DEPLOYMENT.md) untuk setup lengkap
+Lihat [NETLIFY_DEPLOYMENT.md](./NETLIFY_DEPLOYMENT.md) untuk panduan lengkap
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React + TypeScript + TailwindCSS
-- **Backend**: Node.js + Express (optional untuk demo)
-- **Database**: PostgreSQL (tidak perlu untuk demo)
+- **Frontend**: React + TypeScript + TailwindCSS + Vite
+- **State Management**: Zustand
+- **Data**: Mock API dengan sample data built-in
 - **Build**: Vite + Turbo
 - **Deploy**: Netlify Ready
 
@@ -91,12 +87,12 @@ npm run clean
 
 ## 📝 Catatan
 
-- Mode Demo: Data hilang saat refresh (in-memory only)
-- Untuk production: Set `VITE_DEMO_MODE=false` dan setup backend
-- Dokumentasi lengkap di folder docs
+- Data disimpan di browser (localStorage untuk auth)
+- Data claims in-memory, akan reset saat refresh
+- Backend tidak diperlukan - 100% frontend only
 
 ---
 
 **Happy Testing! 🎉**
 
-Ada pertanyaan? Buka [CARA_LOGIN_DEMO.md](./CARA_LOGIN_DEMO.md)
+Aplikasi siap digunakan tanpa backend!

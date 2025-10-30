@@ -64,37 +64,16 @@ Proyek ini sudah siap untuk di-deploy ke Netlify! Lihat [NETLIFY_QUICK_START.md]
 ```
 expense-claims-system/
 ├── apps/
-│   ├── api/          # Express REST API
-│   └── web/          # React frontend
+│   └── web/          # React frontend (with built-in demo data)
 └── packages/
-    ├── database/     # Prisma schemas and migrations
-    ├── types/        # Shared TypeScript types
-    └── config/       # Shared configuration
+    └── types/        # Shared TypeScript types
 ```
 
 ## 🚀 Getting Started
 
-### Demo Mode (No Backend Required) 🎭
+### Frontend Only - No Backend Required! 🎭
 
-Want to try the application without setting up the backend? Use **Demo Mode**!
-
-```bash
-cd apps/web
-echo "VITE_DEMO_MODE=true" > .env
-npm install
-npm run dev
-```
-
-Visit http://localhost:3000 and click "Login as Admin" or "Login as Employee" to explore the app with 15 pre-loaded expense claims.
-
-📖 See [DEMO_MODE.md](./DEMO_MODE.md) for detailed demo mode documentation.
-
-### Full Setup (With Backend)
-
-#### Prerequisites
-- Node.js >= 18
-- PostgreSQL >= 14
-- Redis (for caching and queues)
+This application runs entirely in your browser with built-in demo data. No backend setup needed!
 
 #### Installation
 
@@ -102,73 +81,44 @@ Visit http://localhost:3000 and click "Login as Admin" or "Login as Employee" to
 npm install
 ```
 
-### Setup Database
-
-```bash
-cd packages/database
-npx prisma migrate dev
-npx prisma generate
-```
-
-### Environment Variables
-
-Create `.env` files in each app directory:
-
-**apps/api/.env:**
-```
-DATABASE_URL="postgresql://user:password@localhost:5432/expense_claims"
-REDIS_URL="redis://localhost:6379"
-JWT_SECRET="your-secret-key"
-OPENAI_API_KEY="your-openai-key"
-AWS_S3_BUCKET="your-bucket"
-AWS_ACCESS_KEY_ID="your-key"
-AWS_SECRET_ACCESS_KEY="your-secret"
-```
-
-### Development
+#### Development
 
 ```bash
 npm run dev
 ```
 
-- API: http://localhost:3001
-- Web: http://localhost:3000
+Visit http://localhost:3000 and a login modal will automatically appear. Click "Login as Admin" or "Login as Employee" to explore the app with 15 pre-loaded expense claims.
+
+The application uses:
+- Mock API with realistic delays
+- Pre-loaded sample data (15 expense claims)
+- Full feature demonstration
+- No database or backend required
 
 ## 🚢 Deployment
 
-### Netlify (Frontend Only)
+### Netlify
 
-The easiest way to deploy the frontend is using Netlify:
+The easiest way to deploy is using Netlify:
 
 ```bash
 # The project includes netlify.toml configuration
-# Simply connect your repository to Netlify
+# Simply connect your repository to Netlify and deploy!
 ```
 
-**Important**: When deploying only the frontend to Netlify, you must:
-1. Deploy the backend API separately (see [DEPLOYMENT.md](./DEPLOYMENT.md))
-2. Configure the `VITE_API_URL` environment variable in Netlify dashboard to point to your backend API
-3. Update the API proxy redirects in `netlify.toml` if needed
-
-Without a backend API, the frontend will show 404 errors for all API calls.
+No environment variables or backend setup required. The application works entirely in the browser with built-in demo data.
 
 See [NETLIFY_DEPLOYMENT.md](./NETLIFY_DEPLOYMENT.md) for detailed instructions.
 
-### Full Deployment
-
-For complete deployment instructions including backend and database setup, see [DEPLOYMENT.md](./DEPLOYMENT.md).
-
 ## 📦 Tech Stack
 
-- **Backend**: Node.js, Express, TypeScript
-- **Frontend**: React, TypeScript, TailwindCSS
-- **Database**: PostgreSQL with Prisma ORM
-- **OCR**: Tesseract.js + OpenAI GPT-4 Vision
-- **Authentication**: JWT with refresh tokens
-- **Storage**: AWS S3 / MinIO
-- **Queue**: Bull with Redis
-- **Email**: Nodemailer
-- **WhatsApp**: Twilio API
+- **Frontend**: React, TypeScript, TailwindCSS, Vite
+- **State Management**: Zustand
+- **Routing**: React Router
+- **UI Components**: Lucide React Icons
+- **Data**: Built-in mock API with sample data
+- **Styling**: Tailwind CSS
+- **Notifications**: React Hot Toast
 
 ## 📄 License
 
