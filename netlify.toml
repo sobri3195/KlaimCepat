@@ -2,15 +2,14 @@
   # Base directory is root for monorepo
   base = "."
   
-  # Build command - install deps and build only web app with turbo
-  command = "npm install && npx turbo run build --filter=@expense-claims/web"
+  # Build command - Netlify auto-installs dependencies, so just run the build
+  command = "npx turbo run build --filter=@expense-claims/web"
   
   # Directory to publish (output from Vite build)
   publish = "apps/web/dist"
 
 [build.environment]
   NODE_VERSION = "18"
-  NPM_FLAGS = "--legacy-peer-deps"
 
 # API proxy - redirect API calls to backend
 # Configure VITE_API_URL environment variable in Netlify dashboard if needed

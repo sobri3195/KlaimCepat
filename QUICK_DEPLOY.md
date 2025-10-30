@@ -34,7 +34,7 @@ If Netlify doesn't auto-detect settings, use these:
 | Setting | Value |
 |---------|-------|
 | **Base directory** | (leave empty) |
-| **Build command** | `npm install && npx turbo run build --filter=@expense-claims/web` |
+| **Build command** | `npx turbo run build --filter=@expense-claims/web` |
 | **Publish directory** | `apps/web/dist` |
 | **Node version** | 18 |
 
