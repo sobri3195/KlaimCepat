@@ -7,6 +7,10 @@ import CreateClaim from './pages/CreateClaim';
 import ClaimDetail from './pages/ClaimDetail';
 import Approvals from './pages/Approvals';
 import Analytics from './pages/Analytics';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
+import BudgetTracker from './pages/BudgetTracker';
+import Templates from './pages/Templates';
 import Layout from './components/Layout';
 import LoginModal from './components/LoginModal';
 import { useAuthStore } from './stores/authStore';
@@ -35,13 +39,17 @@ function App() {
             <Route path="/claims/:id" element={<ClaimDetail />} />
             <Route path="/approvals" element={<Approvals />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/budget" element={<BudgetTracker />} />
+            <Route path="/templates" element={<Templates />} />
           </Route>
 
           <Route path="/" element={<Navigate to="/dashboard" />} />
           <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
       ) : (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 animate-fade-in">
           <div className="text-white text-center">
             <h1 className="text-4xl font-bold mb-4">Expense Claims System</h1>
             <p className="text-lg">Please login to continue</p>

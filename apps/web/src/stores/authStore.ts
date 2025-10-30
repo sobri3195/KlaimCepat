@@ -8,6 +8,10 @@ interface User {
   lastName: string;
   role: string;
   employeeId: string;
+  phone?: string;
+  department?: string;
+  position?: string;
+  location?: string;
 }
 
 interface AuthState {
