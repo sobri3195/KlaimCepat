@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import BudgetTracker from './pages/BudgetTracker';
 import Templates from './pages/Templates';
+import TripPlanner from './pages/TripPlanner';
 import Layout from './components/Layout';
 import LoginModal from './components/LoginModal';
 import { useAuthStore } from './stores/authStore';
@@ -43,6 +44,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/budget" element={<BudgetTracker />} />
             <Route path="/templates" element={<Templates />} />
+            <Route path="/trips" element={<TripPlanner />} />
           </Route>
 
           <Route path="/" element={<Navigate to="/dashboard" />} />

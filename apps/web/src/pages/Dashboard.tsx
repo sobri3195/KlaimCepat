@@ -102,41 +102,69 @@ export default function Dashboard() {
         </div>
       </motion.div>
 
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.05 }}
+        className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg shadow-lg p-6 text-white"
+      >
+        <div className="flex items-start justify-between">
+          <div className="flex-1">
+            <div className="flex items-center mb-2">
+              <div className="p-2 bg-white bg-opacity-20 rounded-lg mr-3">
+                <FileText size={24} />
+              </div>
+              <h3 className="text-xl font-bold">✨ AI OCR Now Available!</h3>
+            </div>
+            <p className="text-indigo-100 mb-4">
+              Upload receipts and let AI automatically extract dates, amounts, vendors, and categories. Save time on data entry!
+            </p>
+            <Link
+              to="/claims/new"
+              className="inline-flex items-center px-4 py-2 bg-white text-indigo-600 rounded-lg hover:bg-indigo-50 transition-colors font-semibold shadow-lg"
+            >
+              Try OCR Upload →
+            </Link>
+          </div>
+          <div className="hidden lg:block text-6xl">📸</div>
+        </div>
+      </motion.div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         <StatCard
           title="Total Claims"
           value={stats?.totalClaims || 0}
           icon={<FileText />}
           color="blue"
-          delay={0.1}
+          delay={0.15}
         />
         <StatCard
           title="Pending Approval"
           value={stats?.pendingApprovals || 0}
           icon={<Clock />}
           color="yellow"
-          delay={0.2}
+          delay={0.25}
         />
         <StatCard
           title="Approved"
           value={stats?.claimsByStatus?.APPROVED || 0}
           icon={<CheckCircle />}
           color="green"
-          delay={0.3}
+          delay={0.35}
         />
         <StatCard
           title="Total Amount"
           value={`Rp ${(stats?.totalAmount || 0).toLocaleString('id-ID')}`}
           icon={<TrendingUp />}
           color="purple"
-          delay={0.4}
+          delay={0.45}
         />
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
+        transition={{ delay: 0.55 }}
         className="bg-white rounded-lg shadow-lg p-6"
       >
         <h2 className="text-xl font-semibold mb-4">Recent Claims</h2>
@@ -150,7 +178,7 @@ export default function Dashboard() {
                 key={claim.id}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 + index * 0.1 }}
+                transition={{ delay: 0.65 + index * 0.1 }}
               >
                 <Link
                   to={`/claims/${claim.id}`}

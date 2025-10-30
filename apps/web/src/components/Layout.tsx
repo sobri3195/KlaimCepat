@@ -10,7 +10,8 @@ import {
   X,
   User,
   Settings,
-  Bell
+  Bell,
+  Plane
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -44,6 +45,7 @@ export default function Layout() {
   const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
     { name: 'My Claims', href: '/claims', icon: FileText },
+    { name: 'Trip Planner', href: '/trips', icon: Plane },
     { name: 'Approvals', href: '/approvals', icon: CheckSquare },
     { name: 'Analytics', href: '/analytics', icon: BarChart3, roles: ['MANAGER', 'FINANCE', 'CFO', 'ADMIN'] },
     { name: 'Budget', href: '/budget', icon: BarChart3 },
