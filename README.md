@@ -111,6 +111,23 @@ npm run dev
 - API: http://localhost:3001
 - Web: http://localhost:3000
 
+## 🚢 Deployment
+
+### Netlify (Frontend)
+
+The easiest way to deploy the frontend is using Netlify:
+
+```bash
+# The project includes netlify.toml configuration
+# Simply connect your repository to Netlify
+```
+
+See [NETLIFY_DEPLOYMENT.md](./NETLIFY_DEPLOYMENT.md) for detailed instructions.
+
+### Full Deployment
+
+For complete deployment instructions including backend and database setup, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ## 📦 Tech Stack
 
 - **Backend**: Node.js, Express, TypeScript

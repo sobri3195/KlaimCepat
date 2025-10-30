@@ -93,7 +93,7 @@ export default function Analytics() {
                 dataKey="totalAmount"
                 nameKey="category"
               >
-                {categoryBreakdown.map((entry, index) => (
+                {categoryBreakdown.map((_entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>

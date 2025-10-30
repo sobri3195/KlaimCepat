@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Plus, FileText, Clock, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Plus, FileText, Clock, CheckCircle } from 'lucide-react';
 import api from '../services/api';
 import { useAuthStore } from '../stores/authStore';
 
