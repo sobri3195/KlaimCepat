@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useAuthStore } from '../stores/authStore';
 import { mockApiService } from './mockApi';
 
-const isDemoMode = import.meta.env.VITE_DEMO_MODE === 'true';
+const isDemoMode = true;
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || '/api/v1',
